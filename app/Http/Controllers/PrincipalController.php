@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class PrincipalController extends Controller
 {
+
+    public function principal()
+    {
+        echo 'ola, seja bem vindo ao curso';
+    }
     /**
      * Display a listing of the resource.
      */
