@@ -8,6 +8,6 @@ class SobreController extends Controller
 {
     public function sobre()
     {
-        echo 'sobre';
+        return view('site.sobre');
     }
 }

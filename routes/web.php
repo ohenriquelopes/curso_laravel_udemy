@@ -32,3 +32,10 @@ Route::get('/', [\App\Http\Controllers\PrincipalController::class,'principal']);
 Route::get('/sobre', [\App\Http\Controllers\SobreController::class,'sobre']);
 
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato']);
+
+
+Route::get('/contato/{nome}/{cat_id}', function(string $nome, int $cat_id = 1){
+    echo 'estamos aqui '.$nome. ' '.$cat_id;
+})  ->where('cat_id','[0-9]+')
+    ->where('nome','[A-Za-z]+')
+;
