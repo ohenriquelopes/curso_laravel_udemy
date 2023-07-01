@@ -11,6 +11,16 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+|    verbos HTTP
+    GET: obter dados
+    POST: enviar dados
+    PUT: atualizar dados
+    DELETE: deletar dados
+    PATCH: atualizar dados
+    OPTIONS: obter metodos suportados
+
+
+
 */
 
 Route::get('/', function () {
