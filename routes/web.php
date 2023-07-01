@@ -19,7 +19,11 @@ use Illuminate\Support\Facades\Route;
     PATCH: atualizar dados
     OPTIONS: obter metodos suportados
 
-
+Route::get('/contato/{nome}/{cat_id}', function(string $nome, int $cat_id = 1){
+    echo 'estamos aqui '.$nome. ' '.$cat_id;
+})  ->where('cat_id','[0-9]+')
+    ->where('nome','[A-Za-z]+')
+;
 
 */
 //
@@ -27,15 +31,15 @@ use Illuminate\Support\Facades\Route;
 //    return 'ola, seja bem vindo ao curso';
 //});
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class,'principal']);
+Route::get('/', [\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');
+Route::get('/sobre', [\App\Http\Controllers\SobreController::class,'sobre'])->name('site.sobre');;
+Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::get('/login', function(){return 'login';})->name('login');
 
-Route::get('/sobre', [\App\Http\Controllers\SobreController::class,'sobre']);
+Route::prefix('/app')->group(function(){
+    Route::get('/clientes', function(){return 'clientes';})->name('clientes');
+    Route::get('/fornecedores', function(){return 'fornecedores';})->name('fornecedores');
+    Route::get('/produtos', function(){return 'produtos';})->name('produtos');
+});
 
-Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato']);
 
-
-Route::get('/contato/{nome}/{cat_id}', function(string $nome, int $cat_id = 1){
-    echo 'estamos aqui '.$nome. ' '.$cat_id;
-})  ->where('cat_id','[0-9]+')
-    ->where('nome','[A-Za-z]+')
-;
