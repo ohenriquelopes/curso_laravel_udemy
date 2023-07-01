@@ -42,4 +42,20 @@ Route::prefix('/app')->group(function(){
     Route::get('/produtos', function(){return 'produtos';})->name('produtos');
 });
 
+Route::get('/teste/{p1}/{p2}', [\App\Http\Controllers\TesteController::class,'teste'])->name('teste');
 
+Route::fallback(function(){
+    echo 'a rota acessada nao existe. <a href="'.route('site.index').'"> clique aqui</a> para ir para a pagina inicial';
+});
+
+
+
+//Route::get('/rota1', function(){
+//    echo 'rota 1';
+//})->name('site.rota1');
+
+//Route::redirect('/rota2', '/rota1'); // redirect('origem', 'destino')
+
+//Route::get('/rota2', function(){
+//    return redirect()->route('site.rota1');
+//})->name('site.rota2');
