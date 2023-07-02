@@ -113,7 +113,7 @@
             .conteudo-destaque {
                 width: 100%;
                 height: 100%;
-                min-height: 800px; 
+                min-height: 800px;
             }
 
             .esquerda {
@@ -208,14 +208,14 @@
             <div class="menu">
                 <ul>
                     <li><a href="{{ route('site.index') }}">Principal</a></li>
-                    <li><a href="{{ route('site.sobrenos') }}">Sobre Nós</a></li>
+                    <li><a href="{{ route('site.sobre') }}">Sobre</a></li>
                     <li><a href="{{ route('site.contato') }}">Contato</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="conteudo-destaque">
-        
+
             <div class="esquerda">
                 <div class="informacoes">
                     <h1>Sistema Super Gestão</h1>
