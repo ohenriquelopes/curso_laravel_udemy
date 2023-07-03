@@ -34,6 +34,7 @@ Route::get('/contato/{nome}/{cat_id}', function(string $nome, int $cat_id = 1){
 Route::get('/', [\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');
 Route::get('/sobre', [\App\Http\Controllers\SobreController::class,'sobre'])->name('site.sobre');;
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
+Route::post('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 Route::get('/login', function(){return 'login';})->name('login');
 
 Route::prefix('/app')->group(function(){
