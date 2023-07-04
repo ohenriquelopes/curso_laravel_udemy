@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fornecedor extends Model
 {
-    use HasFactory;
+//    use HasFactory;
+    protected $table = 'fornecedores'; // usado para quando o nome da tabela não é o plural do nome do model
 }
