@@ -9,7 +9,12 @@ class PrincipalController extends Controller
 
     public function principal()
     {
-        return view('site.principal'); // site.principal retorna a view na pasta site arquivo principal site/principal.blade.php
+        $motivo_contatos = [
+            '1' => 'Dúvida',
+            '2' => 'Elogio',
+            '3' => 'Reclamação'
+        ];
+        return view('site.principal', compact('motivo_contatos')); // site.principal retorna a view na pasta site arquivo principal site/principal.blade.php
     }
     /**
      * Display a listing of the resource.
