@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\MotivoContato;
 
 return new class extends Migration
 {
@@ -13,8 +14,11 @@ return new class extends Migration
     {
         Schema::create('motivo_contatos', function (Blueprint $table) {
             $table->id();
+            $table->string('motivo_contato', 20);
             $table->timestamps();
         });
+
+//        MotivoContato::class::create(['motivo_contato' => 'Dúvida', 'motivo_contato' => 'Elogio', 'motivo_contato' => 'Reclamação']);
     }
 
     /**
