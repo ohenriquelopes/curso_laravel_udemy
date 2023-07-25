@@ -10,11 +10,13 @@ init:
 	@docker exec laravel_curso chmod 777 -R .
 deploy:
 	git pull
-	#cp .env .env
-	#cp docker-compose.yml docker-compose.yml
-	docker-compose up -d
+	cp .env .env
+	cp docker-compose.yml docker-compose.yml
+	vendor/bin/sail up -d
 	make composer
 	make migrate
+down:
+	vendor/bin/sail down
 deploy-stagging:
 	git pull
 	cp .env
