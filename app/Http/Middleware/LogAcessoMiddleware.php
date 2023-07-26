@@ -16,5 +16,6 @@ class LogAcessoMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         return $next($request);
+//        return Response('Chegamos no middleware e finalizamos ele');
     }
 }

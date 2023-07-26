@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\LogAcessoMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,10 @@ Route::get('/contato/{nome}/{cat_id}', function(string $nome, int $cat_id = 1){
 //    return 'ola, seja bem vindo ao curso';
 //});
 
-Route::get('/', [\App\Http\Controllers\PrincipalController::class,'principal'])->name('site.index');
+Route::middleware(LogAcessoMiddleware::class)
+    ->get('/', [\App\Http\Controllers\PrincipalController::class,'principal'])
+    ->name('site.index');
+
 Route::get('/sobre', [\App\Http\Controllers\SobreController::class,'sobre'])->name('site.sobre');;
 Route::get('/contato', [\App\Http\Controllers\ContatoController::class,'contato'])->name('site.contato');
 Route::post('/contato', [\App\Http\Controllers\ContatoController::class,'salvar'])->name('site.contato');
