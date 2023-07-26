@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LogAcesso extends Model
 {
-    use HasFactory;
+//    use HasFactory;
+    protected $fillable = ['log'];
 }
