@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreController;
 use App\Http\Controllers\TesteController;
@@ -44,12 +45,14 @@ Route::get('/', [PrincipalController::class,'principal'])->name('site.index')->m
 Route::get('/sobre', [SobreController::class,'sobre'])->name('site.sobre');;
 Route::get('/contato', [ContatoController::class,'contato'])->name('site.contato');
 Route::post('/contato', [ContatoController::class,'salvar'])->name('site.contato');
-Route::get('/login', function(){return 'login';})->name('login');
+
+Route::get('/login/{erro?}', [LoginController::class, 'index'])->name('site.login'); // define o parametro erro como opcional
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
-    Route::get('/clientes', function(){return 'clientes';})->name('clientes');
-    Route::get('/fornecedores', [FornecedorController::class,'index'])->name('fornecedores');
-    Route::get('/produtos', function(){return 'produtos';})->name('produtos');
+    Route::get('/clientes', function(){return 'clientes';})->name('app.clientes');
+    Route::get('/fornecedores', [FornecedorController::class,'index'])->name('app.fornecedores');
+    Route::get('/produtos', function(){return 'produtos';})->name('app.produtos');
 });
 
 Route::get('/teste/{p1}/{p2}', [TesteController::class,'teste'])->name('teste');
