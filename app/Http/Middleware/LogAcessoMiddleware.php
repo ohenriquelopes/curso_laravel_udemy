@@ -21,5 +21,9 @@ class LogAcessoMiddleware
         LogAcesso::create(['log'=>"IP $ip requisitou a rota $rota"]);
         return $next($request);
 //        return Response('Chegamos no middleware e finalizamos ele');
+//        $resposta = $next($request);
+//        $resposta->setStatusCode(201, 'O status foi modificado');
+////        dd($resposta);
+//        return $resposta;
     }
 }
