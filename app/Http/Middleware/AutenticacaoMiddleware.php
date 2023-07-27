@@ -15,23 +15,13 @@ class AutenticacaoMiddleware
      */
     public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil): Response
     {
-        echo $metodo_autenticacao.' - '.$perfil.'<br>';
-        if($metodo_autenticacao == 'padrao'){
-            echo 'verificando autenticacao padrao '.$perfil.'<br>';
-        } else {
-            echo 'verificando autenticacao alternativa '.$perfil.'<br>';
-        }
+      session_start();
 
-        if($perfil == 'visitante') {
-            echo 'Exibir apenas alguns recursos do site'.'<br>';
-        }
-
-        if(true){
+        if(isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
         } else {
-            return Response('Acesso negado! Rota existe autenticacao');
+            return redirect()->route('site.login', ['erro'=>2]);
         }
-//        return $next($request);
 
     }
 
